@@ -7,9 +7,7 @@ const port = 9001
 app.use(express.json())
 app.use(morgan("dev"))
 
-app.post("/url", (request, response) => {
-    response.send("YEs, it's working")
-})
+app.use("/url", require("./routes/urlRouter"))
 
 app.listen(port, () => {
     console.log(`The server is running on port ${port}`)
